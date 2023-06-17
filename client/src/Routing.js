@@ -52,8 +52,6 @@ export const Routing = () => {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      console.log("BASE_URL: ", BASE_URL);
-      console.log("process.env.NODE_ENV: ", process.env.NODE_ENV);
       const response = await fetch(BASE_URL);
       const data = await response.json();
       setLoading(false);

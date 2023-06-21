@@ -26,9 +26,9 @@ const AddToCartButtons = ({ id, title, price, image }) => {
         <React.Fragment>
             <div className="buttonsClassAddToCartButtons">
                 <div className='changAmount'>
-                    <button className='minus' onClick={() => decrementProduct(setCount, id in itemsInCart ? itemsInCart[id]["amount"] : 0)}>-</button>
+                    <button className={(id in itemsInCart && itemsInCart[id]["amount"] > 0) || count > 0 ? "minus size hover": "minus size"} onClick={() => decrementProduct(setCount, id in itemsInCart ? itemsInCart[id]["amount"] : 0)}>-</button>
                     <p>{count}</p>
-                    <button className='plus' onClick={() => incrementProduct(setCount)}>+</button>
+                    <button className='plus size' onClick={() => incrementProduct(setCount)}>+</button>
                 </div>
                 <div className="addToCart">
                     <img

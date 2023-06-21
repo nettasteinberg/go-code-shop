@@ -31,9 +31,9 @@
     min-width: 122px;
 }
 
-.plus {
+.plusInProduct {
     background-color: #dd6e6e;
-    background-color: transparent;
+    /* background-color: transparent; */
     color: white;
     font-size: 24px;
     font-weight: bold;
@@ -44,9 +44,9 @@
     cursor: pointer;
 }
 
-.minus {
+.minusInProduct {
     background-color: #53d4ff;
-    background-color: transparent;
+    /* background-color: transparent; */
     color: white;
     font-size: 24px;
     font-weight: bold;

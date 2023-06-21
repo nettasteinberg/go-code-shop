@@ -6,7 +6,7 @@ import subtract_from_cart_image from '../../Icons/subtract_from_cart.jpg';
 import remove_from_cart_image from '../../Icons/remove_from_cart.jpg';
 
 const AddToCartButtons = ({ id, title, price, image }) => {
-    const { incrementProduct, decrementProduct, addToCart, itemsInCart, setItemsInCart } = useContext(MyContext);
+    const { incrementProduct, decrementProduct, addToCart, itemsInCart, setItemsInCart, isCartOpen } = useContext(MyContext);
     const [count, setCount] = useState(0);
 
     const removeFromCart = (id) => {
@@ -19,6 +19,10 @@ const AddToCartButtons = ({ id, title, price, image }) => {
         setCount(0);
     }
 
+    useEffect(() => {
+        setCount(0);
+    }, [isCartOpen]);
+
     const addOnClick = () => { addToCart(id, title, price, image, count, setCount); setItemsInCart({ ...itemsInCart }); };
     const removeOnClick = () => { removeFromCart(id) };
 
@@ -26,9 +30,9 @@ const AddToCartButtons = ({ id, title, price, image }) => {
         <React.Fragment>
             <div className="buttonsClassAddToCartButtons">
                 <div className='changAmount'>
-                    <button className={(id in itemsInCart && itemsInCart[id]["amount"] > 0) || count > 0 ? "minus size hover": "minus size"} onClick={() => decrementProduct(setCount, id in itemsInCart ? itemsInCart[id]["amount"] : 0)}>-</button>
+                    <button className={(id in itemsInCart && itemsInCart[id]["amount"] > 0) || count > 0 ? "minusInProduct size hover": "minusInProduct size"} onClick={() => decrementProduct(setCount, id in itemsInCart ? itemsInCart[id]["amount"] : 0)}>-</button>
                     <p>{count}</p>
-                    <button className='plus size' onClick={() => incrementProduct(setCount)}>+</button>
+                    <button className='plusInProduct size' onClick={() => incrementProduct(setCount)}>+</button>
                 </div>
                 <div className="addToCart">
                     <img

@@ -18,6 +18,14 @@
 .addToCart {
     display: flex;
     justify-content: center;
+    gap: 5px;
+}
+
+.removeFromCart {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    
 }
 
 .button {
@@ -38,4 +46,8 @@
 
 .remove {
     background-color: #e0b0ff;
+}
+
+.hover {
+    cursor: pointer;
 }
